@@ -1,0 +1,35 @@
+.main-page {
+    text-align: center;
+    padding: 100px 20px;
+    background-color: #f0f4f8;
+    min-height: 100vh;
+    font-family: sans-serif;
+  }
+  
+  .main-header h1 {
+    font-size: 2.5rem;
+    color: #002b5c;
+    margin-bottom: 10px;
+  }
+
+  .main-header p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 40px;
+  }
+
+  .main-buttons .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #002b5c;
+    color: #fff;
+  }
+
+  .main-buttons .btn-secondary {
+    background-color: #ffcb6b;
+    color: #003366;
+  }
