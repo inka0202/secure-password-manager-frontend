@@ -1,0 +1,116 @@
+.content-area1 {
+  /* content area */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin: 30px 20px 19px 20px;
+}
+.text-area {
+  /* Text1 */
+  padding: 20px;
+  max-width: 50%;
+}
+.text {
+  margin: 50px 20px 10px 20px;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 36px;
+  color: #000000;
+}
+.photo1 {
+  width: 40%;
+  object-fit: cover;
+  margin: 20px;
+}
+.title1 {
+  margin: 20px;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.6rem;
+  line-height: 58px;
+  display: flex;
+  align-items: center;
+
+  color: #000000;
+}
+
+.png-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 182px;
+  height: 100px;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 45px;
+}
+
+.cloud {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.png-button span {
+  font-size: 1.8rem;
+  font-family: "Lato", sans-serif;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 34px;
+  color: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.cloudC {
+  user-select: none;
+  display: flex;
+  align-items: flex-start; /* Тепер кнопка буде вирівняна по лівому краю */
+  justify-content: flex-start; /* Вирівнює кнопку зліва */
+  text-decoration: none;
+}
+
+.info-line {
+  display: flex;
+  justify-content: space-between; /* Рівновіддалене розташування карток */
+  gap: 20px; /* Відстань між картками */
+  padding: 20px;
+  background-color: #d8edfc;
+  margin: 15px 5px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.card {
+  background-color: #f0f0f0; /* Сірий фон карток */
+  padding: 20px;
+  border-radius: 8px;
+  width: 30%; /* Картки займають 30% ширини контейнера */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тінь для карток */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.card-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.card-description {
+  font-size: 1.5rem;
+  color: #000000; /* Темно-сірий колір тексту */
+  margin-bottom: 10px;
+}

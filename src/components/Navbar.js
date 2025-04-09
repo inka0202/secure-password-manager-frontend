@@ -1,19 +1,29 @@
-import React from 'react';
-import '../styles/Navbar.css';
-import lockIcon from '../assets/lock_big.png';
+import React from "react";
+import "../styles/Navbar.css";
+import lockIcon from "../assets/lock_icon.png";
 
 const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-      <img src={lockIcon} alt="Lock" className="lock-icon" />
+        <img src={lockIcon} alt="Lock" className="lock-icon" />
         <span>Secure</span>
-        </div>
+      </div>
       <ul className="navbar-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Manager</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Log In</a></li>
+        <li>
+          <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="#">Manager</a>
+        </li>
+        <li>
+          <a href="#">About Us</a>
+        </li>
+        <li>
+          <a href="#" className="last-link">
+            Log In
+          </a>
+        </li>
       </ul>
     </nav>
   );

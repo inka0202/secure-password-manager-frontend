@@ -1,6 +1,6 @@
-import Main from './pages/Main';
+import Main from "./pages/Main";
 function App() {
   return <Main />;
 }
 
-export default Main;
+export default App;
