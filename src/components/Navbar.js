@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/Navbar.css";
 import lockIcon from "../assets/lock_icon.png";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -11,18 +12,24 @@ const Navbar = () => {
       </div>
       <ul className="navbar-links">
         <li>
-          <a href="#">Home</a>
+          <Link to="/" className="linkA">
+            Home
+          </Link>
         </li>
         <li>
-          <a href="#">Manager</a>
+          <Link to="/manager" className="linkA">
+            Manager
+          </Link>
         </li>
         <li>
-          <a href="#">About Us</a>
+          <Link to="/aboutUs" className="linkA">
+            About Us
+          </Link>
         </li>
         <li>
-          <a href="#" className="last-link">
+          <Link to="/login" className="linkA last-link">
             Log In
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>

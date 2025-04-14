@@ -22,7 +22,7 @@
   margin: 12px;
 }
 
-.navbar-links li a {
+.linkA {
   background-color: #fcbf49;
   color: #002b5c;
   text-decoration: none;
@@ -34,7 +34,7 @@
   display: inline-block;
   font-size: 1.3rem;
 }
-.navbar-links li a:hover {
+.navbar-links li :hover {
   transform: translateY(-4px);
 }
 .last-link {

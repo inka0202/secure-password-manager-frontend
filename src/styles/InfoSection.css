@@ -1,0 +1,39 @@
+.iSh {
+  font-style: normal;
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 58px;
+
+  margin: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+}
+.ConteinerIs {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  margin: 15px 20px 30px 20px;
+  min-height: 100vh;
+}
+.contentIs {
+  background-color: #f3f7fa;
+  padding: 45px 25px;
+  margin: 15px 5px;
+}
+#cont1 {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 27.675px;
+  line-height: 33px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #000000;
+}
