@@ -1,7 +1,7 @@
 import React from "react";
-import "../styles/Content.css";
-import cloud from "../assets/cloud.png";
-import Photo3 from "../assets/Photo3.png";
+import "../../styles/Content.css";
+import cloud from "../../assets/cloud.png";
+import Photo3 from "../../assets/Photo3.png";
 
 function Content2() {
   return (

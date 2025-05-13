@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/InfoSection.css";
+import "../../styles/InfoSection.css";
 const InfoSection = () => {
   return (
     <div className="ConteinerIs">

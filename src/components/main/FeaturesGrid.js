@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/FeaturesGrid.css";
+import "../../styles/FeaturesGrid.css";
 
 const FeaturesGrid = () => {
   return (

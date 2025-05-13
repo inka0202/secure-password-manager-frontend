@@ -1,6 +1,6 @@
 import React from "react";
-import "../styles/Navbar.css";
-import lockIcon from "../assets/lock_icon.png";
+import "../../styles/Navbar.css";
+import lockIcon from "../../assets/lock_icon.png";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
