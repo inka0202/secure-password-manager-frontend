@@ -1,7 +1,7 @@
 import React from "react";
-import "../styles/Content1.css";
-import Photo2 from "../assets/Photo2.png";
-import "../styles/Content.css";
+import "../../styles/Content1.css";
+import Photo2 from "../../assets/Photo2.png";
+import "../../styles/Content.css";
 
 const Content1 = () => {
   return (

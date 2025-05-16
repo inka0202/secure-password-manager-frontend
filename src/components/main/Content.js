@@ -1,7 +1,7 @@
 import React from "react";
-import "../styles/Content.css";
-import photo1 from "../assets/photo1.png";
-import cloud from "../assets/cloud.png";
+import "../../styles/Content.css";
+import photo1 from "../../assets/photo1.png";
+import cloud from "../../assets/cloud.png";
 const Content = () => {
   return (
     <div className="conteiner1">
