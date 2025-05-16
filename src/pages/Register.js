@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import EmailInput from "../components/login/EmailInput";
 import PasswordInput from "../components/login/PasswordInput";
 import Footer from "../components/main/Footer";
-import "../styles/Login.css";
 import HeaderN from "../components/login/HeaderN";
+import "../styles/Login.css";
 import Photo4 from "../assets/Photo4.png";
 
-const Login = () => {
+const Register = () => {
   const [email, setEmail] = useState("");
   const [emailValid, setEmailValid] = useState(true);
   const [password, setPassword] = useState("");
   const [passwordValid, setPasswordValid] = useState(true);
-  const navigate = useNavigate();
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     document.getElementById("emailInput")?.focus();
@@ -37,24 +37,24 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     try {
-      const res = await fetch("http://localhost:5000/api/auth/login", {
+      const res = await fetch("http://localhost:5000/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
-  
+
       const data = await res.json();
+      setMessage(data.message);
+
       if (res.ok) {
-        localStorage.setItem("emailFor2FA", email); // Store email for 2FA
-        navigate("/verify");
-      } else {
-        alert(data.message || "Login failed.");
+        setEmail("");
+        setPassword("");
       }
     } catch (err) {
       console.error(err);
-      alert("Something went wrong. Try again.");
+      setMessage("Registration failed. Try again.");
     }
   };
 
@@ -62,10 +62,10 @@ const Login = () => {
     <div className="screen">
       <HeaderN />
       <div className="content-area3">
-        <img src={Photo4} alt="Photo4" className="photo4"></img>
+        <img src={Photo4} alt="Photo4" className="photo4" />
 
         <div className="login-container">
-          <h2>Log In to Your Account</h2>
+          <h2>Create an Account</h2>
           <form onSubmit={handleSubmit} className="login-form">
             <EmailInput
               value={email}
@@ -82,13 +82,17 @@ const Login = () => {
             <button
               type="submit"
               className="btnL"
-              disabled={!emailValid || !passwordValid || !email || !password}
+              disabled={
+                !emailValid || !passwordValid || !email || !password
+              }
             >
-              Log In!
+              Register
             </button>
 
+            {message && <p className="message">{message}</p>}
+
             <p className="register-link">
-              <Link to="/register">Don't have an account? Register</Link>
+              <Link to="/login">Already have an account? Log In</Link>
             </p>
           </form>
         </div>
@@ -98,4 +102,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
