@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import EmailInput from "../components/login/EmailInput";
-import PasswordInput from "../components/login/PasswordInput";
+import RPasswordInput from "../components/register/RPasswordInrut";
 import Footer from "../components/main/Footer";
 
 import "../styles/Login.css";
 import HeaderN from "../components/login/HeaderN";
-import Photo4 from "../assets/Photo4.png";
+import Photo5 from "../assets/Photo5.png";
 
-const Login = () => {
+const Register = () => {
   const [email, setEmail] = useState("");
   const [emailValid, setEmailValid] = useState(true);
   const [password, setPassword] = useState("");
@@ -23,6 +23,7 @@ const Login = () => {
       /^[a-zA-Z0-9]+([._-]?[a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z]{2,})+$/;
     return re.test(email);
   };
+
   const isEmailLengthValid = (email) =>
     email.length >= 6 && email.length <= 254;
 
@@ -38,7 +39,18 @@ const Login = () => {
 
     const isValidLength = value.length >= 8 && value.length <= 128;
     const notOnlySpaces = value.trim().length >= 8;
-    setPasswordValid(isValidLength && notOnlySpaces);
+
+    const hasUppercase = /[A-Z]/.test(value);
+    const hasNumber = /\d/.test(value);
+    const onlyLettersAndDigits = /^[A-Za-z0-9]*$/.test(value);
+
+    setPasswordValid(
+      isValidLength &&
+        notOnlySpaces &&
+        hasNumber &&
+        hasUppercase &&
+        onlyLettersAndDigits
+    );
   };
 
   const handleSubmit = (e) => {
@@ -54,10 +66,8 @@ const Login = () => {
     <div className="screen">
       <HeaderN />
       <div className="content-area3">
-        <img src={Photo4} alt="Photo4" className="photo4"></img>
-
         <div className="login-container">
-          <h2>Log In to Your Account</h2>
+          <h2>Create an Account</h2>
           <form onSubmit={handleSubmit} className="login-form">
             <EmailInput
               value={email}
@@ -65,7 +75,7 @@ const Login = () => {
               isValid={emailValid}
             />
 
-            <PasswordInput
+            <RPasswordInput
               value={password}
               onChange={handlePasswordChange}
               isValid={passwordValid}
@@ -76,18 +86,19 @@ const Login = () => {
               className="btnL"
               disabled={!emailValid || !passwordValid || !email || !password}
             >
-              Log In!
+              Register!
             </button>
 
             <p className="register-link">
-              <Link to="/register">Don't have an account? Register</Link>
+              <Link to="/login">Already have an account? Log In</Link>
             </p>
           </form>
         </div>
+        <img src={Photo5} alt="Photo5" className="photo4"></img>
       </div>
       <Footer />
     </div>
   );
 };
 
-export default Login;
+export default Register;
