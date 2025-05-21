@@ -13,6 +13,7 @@ const Register = () => {
   const [emailValid, setEmailValid] = useState(true);
   const [password, setPassword] = useState("");
   const [passwordValid, setPasswordValid] = useState(true);
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     document.getElementById("emailInput")?.focus();
@@ -53,12 +54,26 @@ const Register = () => {
     );
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (emailValid && passwordValid) {
-      // тут би мав бути запит до бекенду для логіну
-      console.log("Успішний вхід:", { email, password });
+    try {
+      const res = await fetch("http://localhost:5000/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await res.json();
+      setMessage(data.message);
+
+      if (res.ok) {
+        setEmail("");
+        setPassword("");
+      }
+    } catch (err) {
+      console.error(err);
+      setMessage("Registration failed. Try again.");
     }
   };
 
@@ -88,9 +103,12 @@ const Register = () => {
             >
               Register!
             </button>
+            {message && <p className="messg">{message}</p>}
 
             <p className="register-link">
-              <Link to="/login">Already have an account? Log In</Link>
+              <Link to="/login" id="a1">
+                Already have an account? Log In
+              </Link>
             </p>
           </form>
         </div>

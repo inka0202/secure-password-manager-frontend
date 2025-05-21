@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import EmailInput from "../components/login/EmailInput";
 import PasswordInput from "../components/login/PasswordInput";
 import Footer from "../components/main/Footer";
-
 import "../styles/Login.css";
 import HeaderN from "../components/login/HeaderN";
 import Photo4 from "../assets/Photo4.png";
@@ -13,6 +12,7 @@ const Login = () => {
   const [emailValid, setEmailValid] = useState(true);
   const [password, setPassword] = useState("");
   const [passwordValid, setPasswordValid] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     document.getElementById("emailInput")?.focus();
@@ -41,12 +41,26 @@ const Login = () => {
     setPasswordValid(isValidLength && notOnlySpaces);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (emailValid && passwordValid) {
-      // тут би мав бути запит до бекенду для логіну
-      console.log("Успішний вхід:", { email, password });
+  
+    try {
+      const res = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+  
+      const data = await res.json();
+      if (res.ok) {
+        localStorage.setItem("emailFor2FA", email); // Store email for 2FA
+        navigate("/verify");
+      } else {
+        alert(data.message || "Login failed.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong. Try again.");
     }
   };
 
