@@ -82,12 +82,29 @@ input.valid {
   background-color: #aaa;
   cursor: not-allowed;
 }
-
+.btnL:hover {
+  background-color: #004a91;
+}
 .register-link {
   margin-top: 16px;
   text-align: center;
 }
-
+.register-link #a1 {
+  font-size: 1rem;
+  color: #002b5c;
+  margin: 1rem;
+  padding: 0.3rem;
+  font-weight: 500;
+  line-height: 1.4;
+  text-decoration: none;
+  text-align: center;
+  align-self: center;
+  transition: background 1s ease;
+  user-select: none;
+}
+#a1:hover {
+  background-color: #dbe7fe;
+}
 .clouds {
   position: absolute;
   top: 1%;
@@ -124,4 +141,11 @@ input.valid {
   object-fit: cover;
   margin: 30px 40px;
   flex: 1;
+}
+.messg {
+  color: red;
+  font-size: 0.95rem;
+  margin: 1rem;
+  margin-left: 0rem;
+  align-self: start;
 }

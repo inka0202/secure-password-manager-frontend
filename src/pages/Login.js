@@ -43,14 +43,14 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     try {
       const res = await fetch("http://localhost:5000/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password })
       });
-  
+
       const data = await res.json();
       if (res.ok) {
         localStorage.setItem("emailFor2FA", email); // Store email for 2FA
@@ -94,7 +94,9 @@ const Login = () => {
             </button>
 
             <p className="register-link">
-              <Link to="/register">Don't have an account? Register</Link>
+              <Link to="/register" id="a1">
+                Don't have an account? Register
+              </Link>
             </p>
           </form>
         </div>
