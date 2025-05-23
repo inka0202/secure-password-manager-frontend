@@ -1,0 +1,116 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100vh;
+  background-color: #002b5c;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  padding: 20px 10px;
+  box-sizing: border-box;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.sidebar-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  gap: 10px;
+  margin: 0.1rem 1rem 1.5rem 1rem;
+  user-select: none;
+}
+
+.sidebar-content {
+  flex-grow: 1; /* Це розтягує блок на весь доступний простір */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+#h2h {
+  margin: 1rem 0rem;
+  font-size: 1.9rem;
+}
+.sidebar-lock-icon {
+  width: 64px;
+  height: 64px;
+}
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin: 2rem 0rem;
+  align-items: stretch;
+  user-select: none;
+}
+
+.sidebar-btn {
+  background-color: #d8edfc;
+  color: #000;
+  border: none;
+  padding: 0.7rem 1rem;
+  margin: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 4px 4px 0 #b4c2cc; /* оце і є "виступаюча" тінь */
+  transition: transform 0.1s ease-in-out;
+}
+.sidebar-btn a {
+  color: #000000;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+}
+.sidebar-btn:hover a {
+  color: #fcbf49;
+}
+.sidebar-btn:hover {
+  transform: translate(-1px, -1px); /* легкий ефект натискання */
+  box-shadow: 5px 5px 0 #b4c2cc;
+}
+
+.btnLogout {
+  user-select: none;
+  background-color: #f9c66b;
+  color: #000;
+  border: none;
+  padding: 0.7rem 1rem;
+  margin: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 4px 4px 0 #e1a35a; /* оце і є "виступаюча" тінь */
+  transition: transform 0.1s ease-in-out;
+}
+.btnLogout a {
+  color: #14448d;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+}
+.btnLogout:hover a {
+  color: #002b5c;
+}
+.btnLogout:hover {
+  transform: translate(-1px, -1px); /* легкий ефект натискання */
+  box-shadow: 5px 5px 0 #e1a35a;
+}
+
+.sidebar-footer {
+  text-align: center;
+}
+
+.sidebar-clouds {
+  width: 80%;
+  opacity: 0.5;
+}
