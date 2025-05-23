@@ -87,6 +87,7 @@
   margin: 0.5rem;
   font-size: 1.1rem;
   font-weight: bold;
+  border-radius: 8px;
   cursor: pointer;
   text-align: center;
   box-shadow: 4px 4px 0 #e1a35a; /* оце і є "виступаюча" тінь */
