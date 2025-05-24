@@ -52,9 +52,10 @@ const Login = () => {
       });
 
       const data = await res.json();
-      if (res.ok) {
-        localStorage.setItem("emailFor2FA", email); // Store email for 2FA
-        navigate("/verify");
+     if (res.ok) {
+      localStorage.setItem("emailFor2FA", email);
+      localStorage.setItem("awaiting2FA", "true"); // ✅ mark that user is in 2FA step
+      navigate("/verify");
       } else {
         alert(data.message || "Login failed.");
       }

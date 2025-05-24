@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../styles/2FACode.css";
 import HeaderN from "../components/login/HeaderN";
 import Footer from "../components/main/Footer";
+import { useEffect } from 'react';
 
 const Verify2FA = () => {
   const email = localStorage.getItem("emailFor2FA"); // ✅ Retrieve stored email
@@ -10,31 +11,39 @@ const Verify2FA = () => {
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const res = await fetch("http://localhost:5000/api/auth/verify-2fa", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, code })
-      });
-
-      const data = await res.json();
-
-      if (res.ok) {
-        localStorage.setItem("token", data.token); // Store JWT token
-        localStorage.removeItem("emailFor2FA"); // Optional: clean up
-        setMessage("Success! Redirecting...");
-        setTimeout(() => navigate("/"), 1500);
-      } else {
-        setMessage(data.message || "Invalid code!");
-      }
-    } catch (err) {
-      console.error(err);
-      setMessage("Something went wrong!");
+  useEffect(() => {
+    const isAllowed = localStorage.getItem("awaiting2FA");
+    if (!isAllowed) {
+      navigate("/login");
     }
-  };
+  }, [navigate]);
+
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const res = await fetch("http://localhost:5000/api/auth/verify-2fa", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, code })
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      localStorage.setItem("token", data.token); // ✅ Store JWT
+      localStorage.removeItem("emailFor2FA");    // ✅ Clean up temp email
+      localStorage.removeItem("awaiting2FA");    // ✅ Prevent direct access to /verify
+      setMessage("Success! Redirecting...");
+      setTimeout(() => navigate("/"), 1500);
+    } else {
+      setMessage(data.message || "Invalid code!");
+    }
+  } catch (err) {
+    console.error(err);
+    setMessage("Something went wrong!");
+  }
+};
 
   return (
     <div className="screen1">
