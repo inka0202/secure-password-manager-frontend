@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../../styles/PasswordItem.css";
 
-function PasswordItem({ item, onEdit }) {
+function PasswordItem({ item, onEdit, onDelete }) {
   const [showPassword, setShowPassword] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -22,14 +22,14 @@ function PasswordItem({ item, onEdit }) {
       </div>
       <div className="password-field">
         {showPassword ? item.password : "•".repeat(10)}
-        <button
-          className="toggle-password-btn"
-          onClick={() => setShowPassword(!showPassword)}
-          aria-label={showPassword ? "Hide password" : "Show password"}
-        >
-          {showPassword ? "👁" : "👁"}
-        </button>
       </div>
+      <button
+        className="toggle-password-btn"
+        onClick={() => setShowPassword(!showPassword)}
+        aria-label={showPassword ? "Hide password" : "Show password"}
+      >
+        {showPassword ? "👁" : "👁"}
+      </button>
       <div className="actions">
         <button onClick={() => copyToClipboard(item.email)} title="Copy Email">
           📋
@@ -58,7 +58,14 @@ function PasswordItem({ item, onEdit }) {
             >
               Edit
             </button>
-            {/* Тут можна додати Delete якщо потрібно */}
+            <button
+              onClick={() => {
+                onDelete(item.id);
+                setMenuOpen(false);
+              }}
+            >
+              Delete
+            </button>
           </div>
         )}
       </div>

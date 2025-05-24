@@ -16,13 +16,13 @@
   justify-content: flex-end;
 }
 .add-btn {
-  background-color: #fcbf49;
+  background-color: #ffd06f;
   color: #002b5c;
   font-size: 1.1rem;
   padding: 10px 20px;
   border: none;
   border-radius: 8px;
-  box-shadow: 4px 4px 0 #e1a35a; /* оце і є "виступаюча" тінь */
+  box-shadow: 4px 4px 0 #e7b651; /* оце і є "виступаюча" тінь */
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.1s ease-in-out;

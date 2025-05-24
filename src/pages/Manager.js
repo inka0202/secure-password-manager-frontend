@@ -31,6 +31,9 @@ const Manager = () => {
     }
     closeModal();
   };
+  const deletePassword = (id) => {
+    setPasswords((prev) => prev.filter((item) => item.id !== id));
+  };
   return (
     <div
       className="passwords-page"
@@ -45,7 +48,11 @@ const Manager = () => {
         </button>
       </div>
 
-      <PasswordList passwords={passwords} onEdit={openModal} />
+      <PasswordList
+        passwords={passwords}
+        onEdit={openModal}
+        onDelete={deletePassword}
+      />
       {modalOpen && (
         <AddPasswordModal
           onClose={closeModal}

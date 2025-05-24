@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../../styles/AddPasswordModal.css";
+import { generateStrongPassword } from "../manager/passwordGenerator";
 
 function AddPasswordModal({ onClose, onSave, editData }) {
   const [email, setEmail] = useState("");
@@ -15,18 +16,10 @@ function AddPasswordModal({ onClose, onSave, editData }) {
     }
   }, [editData]);
 
-  /*const handleGeneratePassword = () => {
+  const handleGeneratePassword = () => {
     const strongPass = generateStrongPassword();
     setPassword(strongPass);
-  };*/
-  /*import { generateStrongPassword } from "../manager/passwordGenerator";*/
-  /*  <button
-              type="button"
-              className="generate-btn"
-              onClick={handleGeneratePassword}
-            >
-              Generate
-            </button>*/
+  };
 
   const handleSave = () => {
     if (!email || !url || !password) {
@@ -73,13 +66,16 @@ function AddPasswordModal({ onClose, onSave, editData }) {
 
             <button
               type="button"
-              className="toggle-visibility-btn"
+              className="toggle-btn"
               onClick={() => setShowPassword(!showPassword)}
             >
               {showPassword ? "👁" : "👁"}
             </button>
           </div>
-        </label>
+        </label>{" "}
+        <button type="button" className="gbtn" onClick={handleGeneratePassword}>
+          Generate
+        </button>
         <div className="modal-buttons">
           <button onClick={handleSave}>Save</button>
           <button onClick={onClose} className="cancel-btn">
