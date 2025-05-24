@@ -154,3 +154,9 @@ input.valid {
   margin-left: 0rem;
   align-self: start;
 }
+.logoT {
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  color: #ffffff;
+}

@@ -2,13 +2,20 @@ import React from "react";
 import "../../styles/Navbar.css";
 import lockIcon from "../../assets/lock_icon.png";
 import { Link } from "react-router-dom";
+import "../../styles/Login.css";
 
 const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <img src={lockIcon} alt="Lock" className="lock-icon" />
-        <span>Secure</span>
+        <Link to="/" className="logoT">
+          <img src={lockIcon} alt="Lock" className="lock-icon" />
+        </Link>
+        <span>
+          <Link to="/" className="logoT">
+            Secure
+          </Link>
+        </span>
       </div>
       <ul className="navbar-links">
         <li>
