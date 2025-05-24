@@ -19,36 +19,43 @@ const Login = () => {
   }, []);
 
   const validateEmail = (email) => {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const re =
+      /^[a-zA-Z0-9]+([._-]?[a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z]{2,})+$/;
     return re.test(email);
   };
+  const isEmailLengthValid = (email) =>
+    email.length >= 6 && email.length <= 254;
 
   const handleEmailChange = (e) => {
     const value = e.target.value;
     setEmail(value);
-    setEmailValid(validateEmail(value));
+    setEmailValid(validateEmail(value) && isEmailLengthValid(value));
   };
 
   const handlePasswordChange = (e) => {
     const value = e.target.value;
     setPassword(value);
-    setPasswordValid(value.length >= 8);
+
+    const isValidLength = value.length >= 8 && value.length <= 128;
+    const notOnlySpaces = value.trim().length >= 8;
+    setPasswordValid(isValidLength && notOnlySpaces);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     try {
       const res = await fetch("http://localhost:5000/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password })
       });
-  
+
       const data = await res.json();
-      if (res.ok) {
-        localStorage.setItem("emailFor2FA", email); // Store email for 2FA
-        navigate("/verify");
+     if (res.ok) {
+      localStorage.setItem("emailFor2FA", email);
+      localStorage.setItem("awaiting2FA", "true"); // ✅ mark that user is in 2FA step
+      navigate("/verify");
       } else {
         alert(data.message || "Login failed.");
       }
@@ -88,7 +95,9 @@ const Login = () => {
             </button>
 
             <p className="register-link">
-              <Link to="/register">Don't have an account? Register</Link>
+              <Link to="/register" id="a1">
+                Don't have an account? Register
+              </Link>
             </p>
           </form>
         </div>

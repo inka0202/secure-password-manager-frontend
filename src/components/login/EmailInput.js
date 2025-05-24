@@ -6,6 +6,8 @@ const EmailInput = ({ value, onChange, isValid }) => (
     <input
       id="emailInput"
       name="email"
+      maxLength={254}
+      minLength={6}
       type="email"
       autoComplete="email"
       value={value}

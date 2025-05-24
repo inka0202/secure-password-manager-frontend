@@ -3,8 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import Main from "./pages/Main";
 import AboutUs from "./pages/AboutUs";
 import Login from "./pages/Login";
-import Register from './pages/Register';
-import Verify2FA from './pages/Verify2FA';
+import Register from "./pages/Register";
+import Verify2FA from "./pages/Verify2FA";
 
 function App() {
   return (

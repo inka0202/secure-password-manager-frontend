@@ -15,6 +15,7 @@ const PasswordInput = ({ value, onChange, isValid }) => {
         <input
           id="passwordInput"
           name="password"
+          maxLength={128}
           type={showPassword ? "text" : "password"}
           autoComplete="current-password"
           value={value}
