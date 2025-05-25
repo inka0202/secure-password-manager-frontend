@@ -1,0 +1,85 @@
+.user-item {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+  width: 95%;
+}
+
+.user-item:hover {
+  transform: translateY(-2px);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  background-color: #002b5c;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.email {
+  font-size: 1.05rem;
+
+  color: #012752;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0.1rem 0.3rem;
+  margin: 0.1rem;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 254px;
+}
+
+.status {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.status.active {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status.suspended {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.actions .bA {
+  margin-left: 10px;
+  padding: 6px 12px;
+  background-color: #ffd06f;
+  color: #001329;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.actions button:hover {
+  transform: translateY(-2px);
+  background-color: #ffc655;
+}

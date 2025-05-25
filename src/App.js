@@ -7,6 +7,7 @@ import Register from "./pages/Register";
 import Verify2FA from "./pages/Verify2FA";
 import Manager from "./pages/Manager";
 import ManagerA from "./pages/ManagerA";
+import AdminDashboard from "./pages/AdminDashboard";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/verify" element={<Verify2FA />} />
       <Route path="/manager" element={<Manager />} />
       <Route path="/my-account" element={<ManagerA />} />
+      <Route path="/admin-dashboard" element={<AdminDashboard />} />
     </Routes>
   );
 }
