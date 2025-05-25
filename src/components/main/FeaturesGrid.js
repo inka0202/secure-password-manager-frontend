@@ -4,53 +4,52 @@ import "../../styles/FeaturesGrid.css";
 const FeaturesGrid = () => {
   return (
     <div className="features">
-      <h2 className="title2">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      </h2>
+      <h2 className="title2">Powerful Features to Keep You Safe Online</h2>
 
       <div className="card-grid-container">
         <div className="cards">
-          <h2 className="card-title">Card One</h2>
+          <h2 className="card-title">Encrypted Vault</h2>
           <p className="card-description">
-            This is the description for card one. It contains custom text
-            specific to this card.
+            Your passwords are protected with AES-256 encryption — accessible
+            only to you.
           </p>
         </div>
 
         <div className="cards">
-          <h2 className="card-title">Card Two</h2>
+          <h2 className="card-title">Two-Factor Authentication</h2>
           <p className="card-description">
-            Another description here, unique for the second card. You can change
-            this anytime.
+            Add a second layer of protection with email-based two-factor
+            authentication.
           </p>
         </div>
 
         <div className="cards">
-          <h2 className="card-title">Card Three</h2>
+          <h2 className="card-title">Password Strength Checker</h2>
           <p className="card-description">
-            Third card's text goes here. Perhaps some information about a
-            feature or benefit.
+            Get real-time feedback on your password strength as you type.
           </p>
         </div>
 
         <div className="cards">
-          <h2 className="card-title">Card Four</h2>
+          <h2 className="card-title">Security Alerts</h2>
           <p className="card-description">
-            Fourth card description. You can make this longer or shorter.
+            We track login activity and instantly alert you to anything
+            suspicious.
           </p>
         </div>
 
         <div className="cards">
-          <h2 className="card-title">Card Five</h2>
+          <h2 className="card-title">Admin Dashboard</h2>
           <p className="card-description">
-            Card five with more customized text. Great for flexibility.
+            Easily manage users and monitor access with full visibility.
           </p>
         </div>
 
         <div className="cards">
-          <h2 className="card-title">Card Six</h2>
+          <h2 className="card-title">Cross-Platform Access</h2>
           <p className="card-description">
-            Final card in the row. Wrap it up nicely or add a call to action.
+            Access your vault anytime, from any device — desktop, mobile, or
+            tablet.
           </p>
         </div>
       </div>

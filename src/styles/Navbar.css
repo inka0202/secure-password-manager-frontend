@@ -50,3 +50,67 @@
   max-width: 80px;
   max-height: 80px;
 }
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+  font-size: 2rem;
+  color: #fcbf49;
+  background: none;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 15px;
+    position: relative;
+  }
+
+  .navbar-logo {
+    font-size: 1.5rem;
+  }
+
+  .lock-icon {
+    width: 3.2rem;
+    height: 3.2rem;
+    max-width: 60px;
+    max-height: 60px;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .navbar-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: #002b5c;
+    display: none;
+    padding: 20px 0;
+    gap: 20px;
+    z-index: 10;
+  }
+
+  .navbar-links.active {
+    display: flex;
+    margin: 0;
+  }
+
+  .navbar-links li {
+    text-align: center;
+  }
+
+  .last-link {
+    margin-left: 0;
+  }
+}
