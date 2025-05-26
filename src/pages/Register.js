@@ -7,17 +7,33 @@ import Footer from "../components/main/Footer";
 import "../styles/Login.css";
 import HeaderN from "../components/login/HeaderN";
 import Photo5 from "../assets/Photo5.png";
+<<<<<<< Updated upstream
+=======
+import { generateStrongPassword } from "../components/manager/passwordGenerator";
+import { useNavigate } from "react-router-dom";
+>>>>>>> Stashed changes
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [emailValid, setEmailValid] = useState(true);
   const [password, setPassword] = useState("");
   const [passwordValid, setPasswordValid] = useState(true);
+<<<<<<< Updated upstream
   const [message, setMessage] = useState("");
+=======
+  const [successMsg, setSuccessMsg] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    document.getElementById("emailInput")?.focus();
-  }, []);
+ useEffect(() => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    navigate("/manager"); 
+  }
+  document.getElementById("emailInput")?.focus();
+}, [navigate]);
+>>>>>>> Stashed changes
+
 
   const validateEmail = (email) => {
     const re =

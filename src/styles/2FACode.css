@@ -73,9 +73,16 @@ body,
   background-color: #004a91;
 }
 
-.messg1 {
+.messg {
   color: red;
-  font-size: 0.95rem;
+  font-size: 1rem;
+  margin: 0.5rem;
+  align-self: center;
+}
+
+.messg1 {
+  color: green;
+  font-size: 1rem;
   margin: 0.5rem;
   align-self: center;
 }

@@ -31,9 +31,15 @@ const Verify2FA = () => {
     const data = await res.json();
 
     if (res.ok) {
+<<<<<<< Updated upstream
       localStorage.setItem("token", data.token); // ✅ Store JWT
       localStorage.removeItem("emailFor2FA");    // ✅ Clean up temp email
       localStorage.removeItem("awaiting2FA");    // ✅ Prevent direct access to /verify
+=======
+      localStorage.setItem("token", data.token); //  Store JWT
+      localStorage.removeItem("emailFor2FA");    //  Clean up temp email
+      localStorage.removeItem("awaiting2FA");    //  Prevent direct access to /verify
+>>>>>>> Stashed changes
       setMessage("Success! Redirecting...");
       setTimeout(() => navigate("/"), 1500);
     } else {

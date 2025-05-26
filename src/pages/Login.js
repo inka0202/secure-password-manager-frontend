@@ -14,9 +14,14 @@ const Login = () => {
   const [passwordValid, setPasswordValid] = useState(true);
   const navigate = useNavigate();
 
+  // 🚨 Add this to redirect logged-in users away from /login
   useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/"); // or "/my-account" if you want
+    }
     document.getElementById("emailInput")?.focus();
-  }, []);
+  }, [navigate]);
 
   const validateEmail = (email) => {
     const re =

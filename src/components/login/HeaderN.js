@@ -8,8 +8,19 @@ function HeaderN() {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
+<<<<<<< Updated upstream
         <img src={lockIcon} alt="Lock" className="lock-icon" />
         <span>Secure</span>
+=======
+        <Link to="/" className="logoT">
+          <img src={lockIcon} alt="Lock" className="lock-icon" />
+        </Link>
+        <span>
+          <Link to="/" className="logoT">
+            Giggle Password Manager
+          </Link>
+        </span>
+>>>>>>> Stashed changes
         <div>
           <img src={clouds} alt="Clouds" className="clouds"></img>
         </div>

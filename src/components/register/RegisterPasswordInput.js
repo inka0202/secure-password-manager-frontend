@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../../styles/Login.css";
 
-const RPasswordInput = ({ value, onChange, isValid }) => {
+const RegisterPasswordInput = ({ value, onChange, isValid }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [validationMessage, setValidationMessage] = useState("");
 
@@ -25,9 +25,8 @@ const RPasswordInput = ({ value, onChange, isValid }) => {
         message: "Password must contain at least one number."
       },
       {
-        test: (v) => /^[A-Za-z0-9]*$/.test(v),
-        message:
-          "Password can only contain letters and numbers (no spaces or symbols)."
+        test: (v) => !/\s/.test(v),
+        message: "Password must not contain spaces."
       }
     ];
 
@@ -76,4 +75,4 @@ const RPasswordInput = ({ value, onChange, isValid }) => {
   );
 };
 
-export default RPasswordInput;
+export default RegisterPasswordInput;

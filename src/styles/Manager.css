@@ -1,0 +1,45 @@
+.passwords-page {
+  padding: 2rem;
+  background-color: #f4f6f8;
+  min-height: 100vh;
+  /* font-family: "Segoe UI", sans-serif;*/
+}
+
+.passwords-page h1 {
+  font-size: 2.4rem;
+  color: #002b5c;
+  margin-bottom: 1.5rem;
+  user-select: none;
+}
+.panelM {
+  display: flex;
+  justify-content: flex-end;
+}
+.add-btn {
+  background-color: #ffd06f;
+  color: #002b5c;
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 4px 4px 0 #e7b651; /* оце і є "виступаюча" тінь */
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
+  user-select: none;
+
+  align-self: right;
+}
+
+.add-btn:hover {
+  transform: translate(-1px, -1px); /* легкий ефект натискання */
+  box-shadow: 5px 5px 0 #e1a35a;
+}
+@media (max-width: 768px) {
+  .passwords-page {
+    margin-left: 0;
+    padding-top: 80px; /* Висота верхнього меню + відступ */
+    padding-left: 8px;
+    padding-right: 20px;
+  }
+}

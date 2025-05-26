@@ -7,17 +7,17 @@ const Content1 = () => {
   return (
     <div className="content-area">
       <img src={Photo2} alt="photo2" className="photo2" />
-      <div className="text-area">
+      <div className="text-area5">
         <h1 className="title1">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Advanced Encryption. Seamless Access. Complete Control.
         </h1>
         <p className="text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-          laoreet turpis in ex imperdiet, ac sodales mauris suscipit.
-          Suspendisse eget ipsum in turpis laoreet ornare aliquet ut diam. In et
-          vestibulum nisl. Maecenas viverra lectus non erat ullamcorper
-          condimentum. Morbi a tellus orci. Aenean lobortis dapibus est quis
-          vulputate.
+          We protect your data with AES-256 encryption, secure your sessions
+          with JWT, and verify logins using email-based two-factor
+          authentication. <br />
+          Whether you're a casual user or managing multiple accounts, you'll
+          find our interface intuitive, responsive, and secure — from login to
+          logout.
         </p>
       </div>
     </div>
