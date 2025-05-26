@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import EmailInput from "../components/login/EmailInput";
-import RPasswordInput from "../components/register/RPasswordInrut";
+import RegisterPasswordInput from "../components/register/RegisterPasswordInput";
 import Footer from "../components/main/Footer";
-
-import "../styles/Login.css";
+import "../styles/Register.css";
 import HeaderN from "../components/login/HeaderN";
 import Photo5 from "../assets/Photo5.png";
+import { generateStrongPassword } from "../components/manager/passwordGenerator";
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [emailValid, setEmailValid] = useState(true);
   const [password, setPassword] = useState("");
   const [passwordValid, setPasswordValid] = useState(true);
-  const [message, setMessage] = useState("");
+  const [successMsg, setSuccessMsg] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
 
   useEffect(() => {
     document.getElementById("emailInput")?.focus();
@@ -40,18 +41,44 @@ const Register = () => {
 
     const isValidLength = value.length >= 8 && value.length <= 128;
     const notOnlySpaces = value.trim().length >= 8;
-
     const hasUppercase = /[A-Z]/.test(value);
     const hasNumber = /\d/.test(value);
-    const onlyLettersAndDigits = /^[A-Za-z0-9]*$/.test(value);
 
-    setPasswordValid(
-      isValidLength &&
-        notOnlySpaces &&
-        hasNumber &&
-        hasUppercase &&
-        onlyLettersAndDigits
-    );
+    const isValid =
+      isValidLength && notOnlySpaces && hasNumber && hasUppercase;
+
+    setPasswordValid(isValid);
+
+    // Clear the success message if password becomes invalid
+    if (!isValid && successMsg) setSuccessMsg("");
+    if (errorMsg) setErrorMsg(""); // Clear error when editing password
+  };
+
+  const handleGeneratePassword = () => {
+    const strongPass = generateStrongPassword();
+    setPassword(strongPass);
+
+    // Validate manually
+    const isValidLength = strongPass.length >= 8 && strongPass.length <= 128;
+    const notOnlySpaces = strongPass.trim().length >= 8;
+    const hasUppercase = /[A-Z]/.test(strongPass);
+    const hasNumber = /\d/.test(strongPass);
+
+    const isValid =
+      isValidLength && notOnlySpaces && hasNumber && hasUppercase;
+
+    setPasswordValid(isValid);
+
+    navigator.clipboard.writeText(strongPass)
+      .then(() => {
+        setSuccessMsg("Password generated and copied to clipboard!");
+        setErrorMsg("");
+        setTimeout(() => setSuccessMsg(""), 4000);
+      })
+      .catch(() => {
+        setErrorMsg("Failed to copy password.");
+        setSuccessMsg("");
+      });
   };
 
   const handleSubmit = async (e) => {
@@ -65,15 +92,20 @@ const Register = () => {
       });
 
       const data = await res.json();
-      setMessage(data.message);
 
       if (res.ok) {
+        setSuccessMsg(data.message || "User registered successfully");
+        setErrorMsg("");
         setEmail("");
         setPassword("");
+      } else {
+        setErrorMsg(data.message || "Registration failed. Try again.");
+        setSuccessMsg("");
       }
     } catch (err) {
       console.error(err);
-      setMessage("Registration failed. Try again.");
+      setErrorMsg("Registration failed. Try again.");
+      setSuccessMsg("");
     }
   };
 
@@ -90,11 +122,26 @@ const Register = () => {
               isValid={emailValid}
             />
 
-            <RPasswordInput
+            <RegisterPasswordInput
               value={password}
               onChange={handlePasswordChange}
               isValid={passwordValid}
             />
+
+            {/* Success/Error message BELOW password field, above Generate button */}
+            {(successMsg || errorMsg) && (
+              <p className={successMsg ? "success-message" : "error-message"}>
+                {successMsg || errorMsg}
+              </p>
+            )}
+
+            <button
+              type="button"
+              className="gbtn"
+              onClick={handleGeneratePassword}
+            >
+              Generate
+            </button>
 
             <button
               type="submit"
@@ -103,7 +150,6 @@ const Register = () => {
             >
               Register!
             </button>
-            {message && <p className="messg">{message}</p>}
 
             <p className="register-link">
               <Link to="/login" id="a1">
@@ -112,7 +158,7 @@ const Register = () => {
             </p>
           </form>
         </div>
-        <img src={Photo5} alt="Photo5" className="photo4"></img>
+        <img src={Photo5} alt="Photo5" className="photo4" />
       </div>
       <Footer />
     </div>

@@ -12,6 +12,7 @@ const Login = () => {
   const [emailValid, setEmailValid] = useState(true);
   const [password, setPassword] = useState("");
   const [passwordValid, setPasswordValid] = useState(true);
+  const [loginError, setLoginError] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,6 +31,7 @@ const Login = () => {
     const value = e.target.value;
     setEmail(value);
     setEmailValid(validateEmail(value) && isEmailLengthValid(value));
+    setLoginError("");
   };
 
   const handlePasswordChange = (e) => {
@@ -39,6 +41,7 @@ const Login = () => {
     const isValidLength = value.length >= 8 && value.length <= 128;
     const notOnlySpaces = value.trim().length >= 8;
     setPasswordValid(isValidLength && notOnlySpaces);
+    setLoginError("");
   };
 
   const handleSubmit = async (e) => {
@@ -53,14 +56,15 @@ const Login = () => {
 
       const data = await res.json();
       if (res.ok) {
-        localStorage.setItem("emailFor2FA", email); // Store email for 2FA
+        localStorage.setItem("emailFor2FA", email);
+        localStorage.setItem("awaiting2FA", true);
         navigate("/verify");
       } else {
-        alert(data.message || "Login failed.");
+        setLoginError(data.message || "Invalid email or password");
       }
     } catch (err) {
       console.error(err);
-      alert("Something went wrong. Try again.");
+      setLoginError("Something went wrong. Try again.");
     }
   };
 
@@ -68,7 +72,7 @@ const Login = () => {
     <div className="screen">
       <HeaderN />
       <div className="content-area3">
-        <img src={Photo4} alt="Photo4" className="photo4"></img>
+        <img src={Photo4} alt="Photo4" className="photo4" />
 
         <div className="login-container">
           <h2>Log In to Your Account</h2>
@@ -84,6 +88,18 @@ const Login = () => {
               onChange={handlePasswordChange}
               isValid={passwordValid}
             />
+
+            {/* Forgot password link - right aligned, under password input */}
+            <div className="forgot-wrapper">
+              <Link to="/forgot-password" className="forgot-link">
+                Forgot password?
+              </Link>
+            </div>
+
+            {/* Show login error below password input and forgot link */}
+            {loginError && (
+              <div className="messg error-message">{loginError}</div>
+            )}
 
             <button
               type="submit"
