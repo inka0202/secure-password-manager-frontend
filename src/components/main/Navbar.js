@@ -1,13 +1,8 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../../styles/Navbar.css";
-<<<<<<< Updated upstream
-import lockIcon from "../../assets/lock_icon.png";
-import { Link } from "react-router-dom";
-=======
 import "../../styles/Login.css";
 import lockIcon from "../../assets/lock_icon.png";
->>>>>>> Stashed changes
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -32,17 +27,12 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-<<<<<<< Updated upstream
-        <img src={lockIcon} alt="Lock" className="lock-icon" />
-        <span>Secure</span>
-=======
         <Link to="/" className="logoT">
           <img src={lockIcon} alt="Lock" className="lock-icon" />
         </Link>
         <span>
           <Link to="/" className="logoT">Giggle Password Manager</Link>
         </span>
->>>>>>> Stashed changes
       </div>
 
       <ul className="navbar-links">

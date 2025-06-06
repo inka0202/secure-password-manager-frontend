@@ -13,10 +13,10 @@ function PasswordItem({ item, onEdit, onDelete }) {
   return (
     <div className="password-item">
       <div className="info">
-        <div className="email" title={item.label}>
+        <div className="label" title={item.label}>
           {item.label}
         </div>
-        <div className="url" title={item.site}>
+        <div className="site" title={item.site}>
           {item.site}
         </div>
       </div>
@@ -32,8 +32,8 @@ function PasswordItem({ item, onEdit, onDelete }) {
       </button>
       <div className="actions">
         <button
-          onClick={() => copyToClipboard(item.label)}
-          title="Copy Email/Name"
+          onClick={() => copyToClipboard(item.site)}
+          title="Copy URL"
           className="bnt1 copy-btn"
         >
           📋
@@ -58,11 +58,11 @@ function PasswordItem({ item, onEdit, onDelete }) {
             <button
               className="md"
               onClick={() => {
-                copyToClipboard(item.label);
+                copyToClipboard(item.site);
                 setMenuOpen(false);
               }}
             >
-              Copy Email/Name
+              Copy URL
             </button>
             <button
               className="md"
@@ -76,7 +76,7 @@ function PasswordItem({ item, onEdit, onDelete }) {
             <button
               className="md"
               onClick={() => {
-                onEdit();
+                onEdit(item);
                 setMenuOpen(false);
               }}
             >

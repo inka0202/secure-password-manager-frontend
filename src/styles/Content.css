@@ -11,6 +11,7 @@
   padding: 20px;
   max-width: 50%;
 }
+
 .text {
   margin: 50px 20px 10px 20px;
   font-family: "Lato";
@@ -19,6 +20,7 @@
   font-size: 1.8rem;
   line-height: 36px;
   color: #000000;
+  text-align: justify;
 }
 .photo1 {
   width: 40%;
@@ -75,32 +77,36 @@
 .cloudC {
   user-select: none;
   display: flex;
-  align-items: flex-start; /* Тепер кнопка буде вирівняна по лівому краю */
-  justify-content: flex-start; /* Вирівнює кнопку зліва */
+  align-items: flex-start; /* The button will now be left aligned */
+  justify-content: flex-start; /* Aligns the button to the left */
   text-decoration: none;
 }
 
 .info-line {
   display: flex;
-  justify-content: space-between; /* Рівновіддалене розташування карток */
-  gap: 20px; /* Відстань між картками */
+  justify-content: space-between; /* Equidistant arrangement of cards*/
+  gap: 20px; /* Distance between cards */
   padding: 20px;
   background-color: #d8edfc;
   margin: 15px 5px;
   padding: 20px;
   margin: 20px;
+  text-align: justify;
+  text-align: center;
 }
 
 .card {
-  background-color: #f0f0f0; /* Сірий фон карток */
-  padding: 20px;
+  background-color: #f0f0f0; /* Grey card background */
+  padding: 10px;
   border-radius: 8px;
-  width: 30%; /* Картки займають 30% ширини контейнера */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тінь для карток */
+  width: 30%; /* Cards occupy 30% of the width of the container */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for cards */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 20px;
+  margin: 15px;
+  text-align: justify;
+  text-align: center;
 }
 
 .card-title {
@@ -111,6 +117,105 @@
 
 .card-description {
   font-size: 1.5rem;
-  color: #000000; /* Темно-сірий колір тексту */
+  color: #000000; /* Dark gray text color */
   margin-bottom: 10px;
+}
+@media (max-width: 768px) {
+  .text-area {
+    /* Text1 */
+    padding: 20px;
+    max-width: 50%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    text-align: center;
+  }
+  .text-area5 {
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    text-align: center;
+  }
+  .cloud {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .content-area1 {
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 10px;
+    padding: 10px;
+    text-align: justify;
+    text-align: center;
+  }
+  .text-area6 {
+    padding: 20px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    text-align: center;
+  }
+  .text-area {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .photo1 {
+    width: 90%;
+    margin: 10px 0;
+  }
+
+  .title1 {
+    font-size: 2rem;
+    line-height: 42px;
+    text-align: center;
+  }
+
+  .text {
+    font-size: 1.4rem;
+    line-height: 28px;
+    margin: 20px 10px;
+    text-align: center;
+    text-align: justify;
+    text-align: center;
+  }
+
+  .cloudC {
+    justify-content: center;
+  }
+
+  .png-button {
+    margin: 20px auto;
+    width: 150px;
+    height: 80px;
+  }
+
+  .info-line {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .card {
+    width: 90%;
+    margin: 10px 0;
+  }
+}
+.logoT {
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  color: #ffffff;
 }

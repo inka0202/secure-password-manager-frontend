@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode"; 
 import HeaderAd from "../components/admin/HeaderAd";
@@ -7,6 +7,7 @@ import "../styles/AdminDashboard.css";
 
 function AdminDashboard() {
   const navigate = useNavigate();
+  const [currentUserId, setCurrentUserId] = useState(null);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -16,6 +17,7 @@ function AdminDashboard() {
     }
     try {
       const decoded = jwtDecode(token);
+      setCurrentUserId(decoded.userId);
       if (decoded.role !== "admin") {
         navigate("/");
       }
@@ -31,7 +33,8 @@ function AdminDashboard() {
     >
       <HeaderAd />
       <div className="dashboard-content">
-        <UsersList />
+        {/* Pass currentUserId as a prop */}
+        <UsersList currentUserId={currentUserId} />
       </div>
     </div>
   );

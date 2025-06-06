@@ -5,6 +5,18 @@
   margin-left: 240px;
   padding: 40px;
 }
+.logs-table th, .logs-table td {
+  border-bottom: 1px solid #ccc;
+  padding: 8px 12px;
+  text-align: left;
+}
+.logs-table th {
+  background: #f2f5fa;
+  color: #002b5c;
+}
+.logs-table tr:nth-child(even) {
+  background: #fafbfc;
+}
 @media (max-width: 768px) {
   .dashboard-container {
     margin-left: 0;

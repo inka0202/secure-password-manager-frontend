@@ -6,8 +6,8 @@ import Footer from "../components/main/Footer";
 import { useEffect } from 'react';
 
 const Verify2FA = () => {
-  const email = localStorage.getItem("emailFor2FA"); // ✅ Retrieve stored email
-  const [code, setCode] = useState(""); // ✅ This was missing
+  const email = localStorage.getItem("emailFor2FA"); 
+  const [code, setCode] = useState(""); 
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
@@ -18,28 +18,22 @@ const Verify2FA = () => {
     }
   }, [navigate]);
 
-  const handleSubmit = async (e) => {
+ const handleSubmit = async (e) => {
   e.preventDefault();
 
   try {
-    const res = await fetch("http://localhost:5000/api/auth/verify-2fa", {
+    const res = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/verify-2fa`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, code })
+      body: JSON.stringify({ email, code }),
     });
 
     const data = await res.json();
 
     if (res.ok) {
-<<<<<<< Updated upstream
-      localStorage.setItem("token", data.token); // ✅ Store JWT
-      localStorage.removeItem("emailFor2FA");    // ✅ Clean up temp email
-      localStorage.removeItem("awaiting2FA");    // ✅ Prevent direct access to /verify
-=======
-      localStorage.setItem("token", data.token); //  Store JWT
-      localStorage.removeItem("emailFor2FA");    //  Clean up temp email
-      localStorage.removeItem("awaiting2FA");    //  Prevent direct access to /verify
->>>>>>> Stashed changes
+      localStorage.setItem("token", data.token);
+      localStorage.removeItem("emailFor2FA");
+      localStorage.removeItem("awaiting2FA");
       setMessage("Success! Redirecting...");
       setTimeout(() => navigate("/"), 1500);
     } else {

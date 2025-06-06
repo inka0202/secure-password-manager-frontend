@@ -19,6 +19,8 @@
   flex-direction: column;
   justify-content: space-between;
   width: 80%;
+  text-align: justify;
+  text-align: center;
 }
 
 .card-title {
@@ -42,4 +44,30 @@
   text-align: center;
   color: #000000;
   margin-bottom: 40px;
+}
+@media (max-width: 768px) {
+  .card-grid-container {
+    grid-template-columns: 1fr; /* одна колонка */
+    padding: 20px 10px;
+    gap: 15px;
+  }
+
+  .cards {
+    width: 95%; /* карточка на всю ширину контейнера */
+    margin: 0 auto;
+  }
+
+  .title2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    padding: 0 10px;
+  }
+
+  .card-title {
+    font-size: 1.6rem;
+  }
+
+  .card-description {
+    font-size: 1.3rem;
+  }
 }

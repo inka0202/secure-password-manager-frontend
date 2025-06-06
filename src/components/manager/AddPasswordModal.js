@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../../styles/AddPasswordModal.css";
-import { generateStrongPassword } from "../manager/passwordGenerator";
+import { generateStrongPassword } from "./passwordGenerator"; 
 import zxcvbn from "zxcvbn";
 
 function AddPasswordModal({ onClose, onSave, passwordToEdit }) {
@@ -12,7 +12,7 @@ function AddPasswordModal({ onClose, onSave, passwordToEdit }) {
   const [error, setError] = useState("");
   const [isSaving, setIsSaving] = useState(false);
   const [copied, setCopied] = useState(false);
-  
+
   useEffect(() => {
     setSite(passwordToEdit ? passwordToEdit.site : "");
     setLabel(passwordToEdit ? passwordToEdit.label : "");
@@ -43,7 +43,7 @@ function AddPasswordModal({ onClose, onSave, passwordToEdit }) {
       setError("Failed to copy password.");
     }
   };
-  
+
   const enhancedPasswordCheck = (password) => {
     const zxcvbnResult = zxcvbn(password);
     let score = zxcvbnResult.score;
@@ -69,7 +69,7 @@ function AddPasswordModal({ onClose, onSave, passwordToEdit }) {
     return { ...zxcvbnResult, score };
   };
 
-  const handleSave = async (e) => {
+  const handleSave = (e) => {
     e.preventDefault();
     setError("");
     if (!site || !label || !password) {
@@ -77,45 +77,9 @@ function AddPasswordModal({ onClose, onSave, passwordToEdit }) {
       return;
     }
     setIsSaving(true);
-    try {
-      const token = localStorage.getItem("token");
-      if (!token) throw new Error("Not logged in!");
-
-      const isEdit = !!passwordToEdit;
-      const url = isEdit
-        ? `http://localhost:5000/api/passwords/${passwordToEdit.id}`
-        : "http://localhost:5000/api/passwords";
-      const method = isEdit ? "PUT" : "POST";
-      const bodyData = { site, label, label };
-
-      const response = await fetch(url, {
-        method,
-        headers: {
-          "Authorization": `Bearer ${token}`,
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(bodyData)
-      });
-
-      if (!response.ok) {
-        if (response.status === 401) {
-          localStorage.removeItem("token");
-          alert("Session expired. Please log in again.");
-          window.location.href = "/login";
-          return;
-        }
-        const errorText = await response.text();
-        throw new Error(errorText || `Failed to save password (status ${response.status}).`);
-      }
-
-      // Update parent, which will close modal
-      const savedPassword = await response.json();
-      onSave(savedPassword);
-    } catch (err) {
-      setError(err.message || "Failed to save password. Please try again.");
-    } finally {
-      setIsSaving(false);
-    }
+    // Only pass data to parent, don't do API calls here
+    onSave({ label, site, password });
+    setIsSaving(false);
   };
 
   return (
