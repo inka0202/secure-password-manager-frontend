@@ -13,7 +13,7 @@ function UsersList({ currentUserId }) {   // <-- Add this prop!
   const fetchUsers = async () => {
     setLoading(true);
     const token = localStorage.getItem("token");
-    const res = await fetch("http://localhost:5000/api/admin/users", {
+    const res = await fetch(`${process.env.REACT_APP_API_URL}/api/admin/users`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     if (res.ok) {
@@ -38,7 +38,7 @@ function UsersList({ currentUserId }) {   // <-- Add this prop!
     const token = localStorage.getItem("token");
     if (actionType === "delete") {
       await fetch(
-        `http://localhost:5000/api/admin/users/${selectedUser._id}`,
+        `${process.env.REACT_APP_API_URL}/api/admin/users/${selectedUser._id}`,
         {
           method: "DELETE",
           headers: { Authorization: `Bearer ${token}` }
