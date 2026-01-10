@@ -102,10 +102,7 @@ const ManagerA = ({ userEmail, onSave, editData }) => {
   };
 
   return (
-    <div
-      className="account-page"
-      style={{ marginLeft: "240px", padding: "40px" }}
-    >
+    <div className="account-page">
       <HeaderM />
       <h1>Account Settings</h1>
       {/* USER INFO */}

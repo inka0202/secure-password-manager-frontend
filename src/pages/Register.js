@@ -44,8 +44,7 @@ const Register = () => {
     const hasUppercase = /[A-Z]/.test(value);
     const hasNumber = /\d/.test(value);
 
-    const isValid =
-      isValidLength && notOnlySpaces && hasNumber && hasUppercase;
+    const isValid = isValidLength && notOnlySpaces && hasNumber && hasUppercase;
 
     setPasswordValid(isValid);
 
@@ -64,12 +63,12 @@ const Register = () => {
     const hasUppercase = /[A-Z]/.test(strongPass);
     const hasNumber = /\d/.test(strongPass);
 
-    const isValid =
-      isValidLength && notOnlySpaces && hasNumber && hasUppercase;
+    const isValid = isValidLength && notOnlySpaces && hasNumber && hasUppercase;
 
     setPasswordValid(isValid);
 
-    navigator.clipboard.writeText(strongPass)
+    navigator.clipboard
+      .writeText(strongPass)
       .then(() => {
         setSuccessMsg("Password generated and copied to clipboard!");
         setErrorMsg("");

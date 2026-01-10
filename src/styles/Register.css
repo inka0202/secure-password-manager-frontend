@@ -162,9 +162,9 @@ input.valid {
 }
 
 .success-message {
-  color: #1a7f1a;            
+  color: #1a7f1a;
   font-size: 0.9rem;
-  margin: 0.2rem 0 1rem 1rem; 
+  margin: 0.2rem 0 1rem 1rem;
   text-align: left;
 }
 
@@ -173,4 +173,21 @@ input.valid {
   font-size: 0.9rem;
   margin: 0.2rem 0 1rem 1rem;
   text-align: left;
+}
+
+@media (max-width: 768px) {
+  .content-area3 {
+    /* content area */
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .photo4 {
+    width: 80%;
+    max-width: 500px;
+    object-fit: cover;
+    margin: 30px 40px;
+    flex: 3;
+  }
 }

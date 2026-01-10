@@ -35,10 +35,7 @@ const Manager = () => {
     setPasswords((prev) => prev.filter((item) => item.id !== id));
   };
   return (
-    <div
-      className="passwords-page"
-      style={{ marginLeft: "240px", padding: "40px" }}
-    >
+    <div className="passwords-page">
       <HeaderM />
       <h1>My Passwords</h1>
 

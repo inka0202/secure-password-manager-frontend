@@ -31,17 +31,22 @@ function PasswordItem({ item, onEdit, onDelete }) {
         {showPassword ? "👁" : "👁"}
       </button>
       <div className="actions">
-        <button onClick={() => copyToClipboard(item.email)} title="Copy Email">
+        <button
+          onClick={() => copyToClipboard(item.email)}
+          title="Copy Email"
+          className="bnt1 copy-btn"
+        >
           📋
         </button>
         <button
           onClick={() => copyToClipboard(item.password)}
           title="Copy Password"
+          className="bnt1 copy-btn"
         >
           📋
         </button>
         <button
-          className="menu-btn"
+          className="bnt1 menu-btn"
           onClick={() => setMenuOpen((prev) => !prev)}
           aria-label="More options"
         >
@@ -51,6 +56,25 @@ function PasswordItem({ item, onEdit, onDelete }) {
         {menuOpen && (
           <div className="menu-dropdown">
             <button
+              className="md"
+              onClick={() => {
+                copyToClipboard(item.email);
+                setMenuOpen(false);
+              }}
+            >
+              Copy Email
+            </button>
+            <button
+              className="md"
+              onClick={() => {
+                copyToClipboard(item.password);
+                setMenuOpen(false);
+              }}
+            >
+              Copy Password
+            </button>
+            <button
+              className="md"
               onClick={() => {
                 onEdit();
                 setMenuOpen(false);
@@ -59,6 +83,7 @@ function PasswordItem({ item, onEdit, onDelete }) {
               Edit
             </button>
             <button
+              className="md"
               onClick={() => {
                 onDelete(item.id);
                 setMenuOpen(false);

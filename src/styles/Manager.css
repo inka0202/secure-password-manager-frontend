@@ -2,6 +2,8 @@
   padding: 2rem;
   background-color: #f4f6f8;
   min-height: 100vh;
+  margin-left: 240px;
+  padding: 40px;
   /* font-family: "Segoe UI", sans-serif;*/
 }
 
@@ -34,4 +36,12 @@
 .add-btn:hover {
   transform: translate(-1px, -1px); /* легкий ефект натискання */
   box-shadow: 5px 5px 0 #e1a35a;
+}
+@media (max-width: 768px) {
+  .passwords-page {
+    margin-left: 0;
+    padding-top: 80px; /* Висота верхнього меню + відступ */
+    padding-left: 8px;
+    padding-right: 20px;
+  }
 }

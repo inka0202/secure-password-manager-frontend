@@ -5,10 +5,7 @@ import "../styles/AdminDashboard.css";
 
 function AdminDashboard() {
   return (
-    <div
-      className="dashboard-container"
-      style={{ marginLeft: "240px", padding: "40px" }}
-    >
+    <div className="dashboard-container">
       <HeaderAd />
       <div className="dashboard-content">
         <UsersList />

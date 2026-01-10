@@ -163,8 +163,8 @@ input.valid {
 .forgot-wrapper {
   display: flex;
   justify-content: flex-end;
-  margin-right: 1.3rem;  /* matches input right margin */
-  margin-top: -1rem;     /* moves it right below the password */
+  margin-right: 1.3rem; /* matches input right margin */
+  margin-top: -1rem; /* moves it right below the password */
   margin-bottom: 0.5rem;
 }
 .forgot-link {
@@ -179,4 +179,20 @@ input.valid {
 }
 .forgot-link:hover {
   background-color: #dbe7fe;
+}
+@media (max-width: 768px) {
+  .content-area3 {
+    /* content area */
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .photo4 {
+    width: 80%;
+    max-width: 500px;
+    object-fit: cover;
+    margin: 30px 40px;
+    flex: 3;
+  }
 }

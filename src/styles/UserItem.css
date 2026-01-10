@@ -79,7 +79,18 @@
   transition: transform 0.2s ease;
 }
 
-.actions button:hover {
+.actions .bA:hover {
   transform: translateY(-2px);
   background-color: #ffc655;
+}
+@media (max-width: 768px) {
+  .actions {
+    flex-direction: column;
+  }
+  .user-info {
+    flex-direction: column;
+  }
+  .user-item {
+    width: 90%;
+  }
 }
