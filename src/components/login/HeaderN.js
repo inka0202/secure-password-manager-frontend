@@ -14,7 +14,7 @@ function HeaderN() {
         </Link>
         <span>
           <Link to="/" className="logoT">
-            Giggle Password Manager
+            Secure Password Manager
           </Link>
         </span>
         <div>

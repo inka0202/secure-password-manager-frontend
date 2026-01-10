@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import lockIcon from "../../assets/lock_icon.png";
 import "../../styles/NavbarM.css";
 import "../../styles/Login.css";
-import { jwtDecode } from 'jwt-decode';
 
 function HeaderM() {
   const navigate = useNavigate();
@@ -21,7 +20,9 @@ function HeaderM() {
           <img src={lockIcon} alt="Lock" className="sidebar-lock-icon" />
         </Link>
         <span>
-          <Link to="/" className="logoT">Giggle Password Manager</Link>
+          <Link to="/" className="logoT">
+            Secure Password Manager
+          </Link>
         </span>
       </div>
 

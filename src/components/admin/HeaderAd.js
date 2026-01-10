@@ -9,14 +9,14 @@ function HeaderAd() {
     <div className="sidebar">
       <div className="sidebar-header">
         <img src={lockIcon} alt="Lock" className="sidebar-lock-icon" />
-        <h2 id="h2h">Giggle Password Manager</h2>
+        <h2 id="h2h">Secure Password Manager</h2>
       </div>
       <div className="sidebar-content">
         <div className="sidebar-links">
           <button className="sidebar-btn">
             <Link to="/admin-dashboard">Admin Management Panel</Link>
           </button>
-         <button className="sidebar-btn">
+          <button className="sidebar-btn">
             <Link to="/admin-logs">Admin Action Logs</Link>
           </button>
         </div>

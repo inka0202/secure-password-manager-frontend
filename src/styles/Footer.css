@@ -1,42 +1,45 @@
 .footer {
   display: flex;
-  justify-content: space-between; 
-  align-items: center;            
-  padding: 5px 25px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 25px;
   background-color: #002b5c;
+  color: white;
   user-select: none;
+  flex-wrap: wrap;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .contact {
-  align-items: left;
-  color: white;
   font-size: 1.4rem;
-  font-style: normal;
   font-weight: bold;
 }
 
-.footer-contact {
+.infoF {
   display: flex;
   align-items: center;
-  gap: 0.5rem; 
+  gap: 5px;
 }
 
 .gmail-icon {
   height: 40px;
   width: auto;
 }
-
 .copyright {
-  color: #fff;
   font-size: 1.4rem;
-  align-items: center;
-  font-style: normal;
   font-weight: bold;
+  margin-left: auto;
 }
+
 .email-link {
   color: white;
   text-decoration: none;
   font-size: 1.2rem;
-  font-style: normal;
   font-weight: bold;
 }

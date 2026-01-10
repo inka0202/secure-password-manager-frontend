@@ -31,14 +31,28 @@ const Navbar = () => {
           <img src={lockIcon} alt="Lock" className="lock-icon" />
         </Link>
         <span>
-          <Link to="/" className="logoT">Giggle Password Manager</Link>
+          <Link to="/" className="logoT">
+            Secure Password Manager
+          </Link>
         </span>
       </div>
 
       <ul className="navbar-links">
-        <li><Link to="/" className="linkA">Home</Link></li>
-        <li><Link to="/manager" className="linkA">Manager</Link></li>
-        <li><Link to="/aboutUs" className="linkA">About Us</Link></li>
+        <li>
+          <Link to="/" className="linkA">
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link to="/manager" className="linkA">
+            Manager
+          </Link>
+        </li>
+        <li>
+          <Link to="/aboutUs" className="linkA">
+            About Us
+          </Link>
+        </li>
         <li>
           {token ? (
             <div
@@ -49,7 +63,9 @@ const Navbar = () => {
               {initials || "U"}
             </div>
           ) : (
-            <Link to="/login" className="linkA last-link">Log In</Link>
+            <Link to="/login" className="linkA last-link">
+              Log In
+            </Link>
           )}
         </li>
       </ul>
