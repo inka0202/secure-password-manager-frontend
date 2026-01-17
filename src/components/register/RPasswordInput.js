@@ -45,19 +45,26 @@ const RPasswordInput = ({ value, onChange, isValid, type = "password"}) => {
   return (
     <>
       <div className="password-wrapper">
-        <input
-          id="passwordInput"
-          name="password"
-          maxLength={128}
-          type={type}
-          autoComplete="new-password"
-          value={value}
-          onChange={onChange}
-          placeholder="Enter your password"
-          className={value ? (!isValid ? "error" : "valid") : ""}
-          required
-        />
-      </div>
+          <input
+            id="passwordInput"
+            name="password"
+            maxLength={128}
+            type={showPassword ? "text" : "password"} 
+            autoComplete="new-password"
+            value={value}
+            onChange={onChange}
+            placeholder="Enter your password"
+            className={value ? (!isValid ? "error" : "valid") : ""}
+            required
+          />
+          <button
+            type="button"
+            className="toggle-password-btn"
+            onClick={togglePassword} 
+          >
+            {showPassword ? "👁" : "👁"}
+          </button>
+        </div>
 
       {validationMessage && (
         <p className="error-message">{validationMessage}</p>
