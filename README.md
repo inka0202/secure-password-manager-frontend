@@ -1,70 +1,132 @@
-# Getting Started with Create React App
+# 🔐 Secure Password Manager — Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern **React.js frontend** for a secure password management system, designed with **security, usability, and clarity** in mind.
 
-## Available Scripts
+This project is part of a **full‑stack MERN application** that demonstrates best practices in authentication, encryption, and web security — built to be **easy to understand for recruiters** and **practical for real-world usage**.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🌐 Live Demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+> ⚠️ **Important note about deployment**
+> The frontend is deployed on **Vercel** and communicates with a backend hosted on **Render**.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+⏳ **First request may take 30–60 seconds** if the backend is in sleep mode (Render free tier). This is expected behavior.
 
-### `npm test`
+🔗 Frontend (Vercel): [https://password-manager-secure.vercel.app/](https://password-manager-secure.vercel.app/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🧠 Project Overview
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Secure Password Manager is a web application that allows users to:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- store passwords securely using **AES‑256 encryption** (handled by backend)
+- generate strong passwords
+- manage credentials in a protected environment
+- authenticate using **email-based Two-Factor Authentication (2FA)**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The frontend focuses on **UX clarity**, **secure flows**, and **clean separation of concerns**.
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## ✨ Key Features (Frontend)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- 🔑 Secure authentication flow (JWT-based)
+- 📧 Email-based Two-Factor Authentication UI
+- 🔐 Encrypted password vault interface
+- 🧠 Password strength indicator
+- ⚙️ Profile & session management
+- 🛡️ Protected routes
+- 📱 Responsive design
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🧩 Tech Stack
 
-## Learn More
+- **React.js** (Create React App)
+- **JavaScript (ES6+)**
+- **RESTful API** (native Fetch API for backend communication)
+- **React Router** for routing
+- **zxcvbn** for password strength estimation
+- **CSS / modern layout practices**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🚀 Running Locally
 
-### Code Splitting
+### Prerequisites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Node.js (v18+ recommended)
+- npm or yarn
+- Running backend API
 
-### Analyzing the Bundle Size
+### Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+npm install
+```
 
-### Making a Progressive Web App
+### Start development server
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+npm start
+```
 
-### Advanced Configuration
+The app will be available at:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```
+http://localhost:3000
+```
 
-### Deployment
+> ⚠️ Make sure the backend base URL is correctly set in the API configuration.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## 🔐 Security Notes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- All sensitive data is encrypted on the **backend**
+- Frontend never stores raw passwords
+- JWT tokens are handled securely
+- 2FA is required for sensitive actions
+
+This project follows **OWASP recommendations** for frontend security where applicable.
+
+---
+
+## 📦 Deployment
+
+- **Frontend:** Vercel
+- **Backend:** Render
+- **Database:** MongoDB Atlas
+
+> ⏳ Cold start delays are expected on free hosting tiers.
+
+---
+
+## 🎯 Why This Project Matters
+
+This frontend demonstrates:
+
+- real-world authentication flows
+- security-aware UI decisions
+- integration with encrypted backend APIs
+- clean project structure
+- production-style deployment
+
+This frontend is structured and implemented in a production-ready style for portfolio demonstration purposes.
+
+---
+
+## 📌 Future Improvements
+
+- UI tests (Cypress / Playwright)
+- Improved error handling & notifications
+- Accessibility improvements (a11y)
+- Dark mode
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
